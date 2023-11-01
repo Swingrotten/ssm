@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace等于mapper接口类的全限定名,这样实现对应 -->
+<mapper namespace="com.ccz.mapper.ScheduleMapper">
+    <insert id="insert">
+        insert into schedule (title,completed) values
+        (#{title},#{completed})
+    </insert>
+    <update id="update">
+        update schedule set title=#{title},completed=#{completed}
+        where id=#{id}
+    </update>
+
+    <select id="queryList" resultType="schedule">
+        select * from schedule
+    </select>
+
+    <delete id="deleteById">
+        delete from schedule where id=#{id}
+    </delete>
+</mapper>
